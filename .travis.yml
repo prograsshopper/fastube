@@ -9,3 +9,4 @@ script:
     - pep8 .
 notifications:
     slack: doiladprivateslack:u4OTKClREdA6tPhgHF1LjVuh
+    email: false
