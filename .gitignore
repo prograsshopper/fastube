@@ -90,6 +90,7 @@ ENV/
 
 #Databse
 db.sqlite3
+migrations
 
 #Swap file
 *.swp
