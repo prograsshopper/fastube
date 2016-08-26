@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+#Databse
+db.sqlite3
+
+#Swap file
+*.swp
+*.swo
