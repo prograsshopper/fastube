@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'pipeline',
+
     'users',
 ]
 
@@ -122,6 +124,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATICFILES_DIR = [
+        os.path.join(BASE_DIR, "fastube", "static"),
+        ]
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, "dist", "static")
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',)
+PIPELINE = {
+    'STYLESHEETS': {
+        'fastube': {
+            'source_filenames': (
+                'css/application.css',
+                'css/partials/*.css',
+                 ),
+            'output_filename': 'css/fastube.css',
+            }
+        }
+    }
 
+
+# Auth
 AUTH_USER_MODEL = "users.User"
